@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{%load my_filters%}
+{%load static%}
+
+{%block content%}
+
+<section class="hero">
+
+    <div id="video">
+
+        <img src = "/static/images/wall5.jpeg" id="wall">
+
+    </div>
+    <div id="splash-video">
+
+        <video src = "/static/images/AnimeJojo.mp4" id="bk1" autoplay = "autoplay" muted = "muted">
+
+    </div>
+
+</section>
+
+<section class="main">
+
+<div class="container">
+    <div id="main-body">
+        <div id="latest">
+            <h2> Latest Anime </h2>
+            <div id="trending">
+            {% comment %} {% for i in  e %} {% endcomment %}
+                {% comment %} {% while i < 14477 %} {% endcomment %}
+                {% for i in f %}
+                {% comment %} {% for ii in b %}
+                {% for iii in c %} {% endcomment %}
+                <a href = "{{i.2}}" id="linker">
+                    <img src = "{{ i.1 }}">
+                    <div id="t1">
+                        {{ i.0 }}
+                    </div>
+                </a>
+                {% comment %} {% endfor %}
+                {% endfor %} {% endcomment %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</section>
+
+
+{%endblock%}

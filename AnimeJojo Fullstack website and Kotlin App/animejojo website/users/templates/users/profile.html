@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+
+<div id="nav"></div>
+<section class="profile">
+
+
+    <div id = "sidebar">
+        <img src="{{a.display_picture.url}}" id="display">
+        
+        <h5> {{a.first_name}} {{ a.last_name}}</h5>
+        <h5>Watchlist</h5>
+        <h5>Favourites</h5>
+        <h5>{{a.bio}}<h5>
+        <h5>{{a.dob}}<h5>
+    </div>
+
+
+    <div id="profile-container">
+        <h2>{{a.username}}<h2>
+        <div></div>
+    </div>
+
+</section>
+
+{% endblock %}

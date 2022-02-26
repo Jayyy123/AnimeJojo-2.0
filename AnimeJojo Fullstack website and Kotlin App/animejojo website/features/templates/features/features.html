@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+
+<section class="features">
+
+    <div class='b-image'>
+        <img src = "{% static 'images/wall.jpeg' %}" id="w-img">
+    </div>
+
+    <div id='features'>
+        <div id="cwq">
+            <a href = "{% url 'characterize' %}" id="characterize">
+                <h2>Characterize</h2>
+                Characterize is a Feature where you can see which anime character you are!<br>
+                Explore Characterize now and find the anime character in you!
+            </a>
+            <a href = "{% url 'wallpapers' %}" id="wallpapers">
+                <h2>Anime Wallpapers</h2>
+                Find that anime wallpaper you are looking for.<br>
+                Search through the database for quality pictures to save.<br>
+                From anime characters to anime arts to anime posters to cosplays.<br>
+                If it's a picture about anime we've got it!
+            </a>
+            <a href = "{% url 'animequiz' %}" id="quiz">
+                <h2>Anime Quiz</h2>
+                Are you a true anime fan?<br>
+                Think you can handle this game?<br>
+                Here 20 random pictures of anime characters will be shown and you will be timed.<br>
+                How well do you know your characters?<br>
+                Click to find out now!
+            </a>
+        </div>
+    </div>
+
+</section>
+
+
+
+{% endblock %}

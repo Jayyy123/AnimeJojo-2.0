@@ -1,0 +1,52 @@
+{%load static%}
+
+<header class = 'head'>
+
+    <div class ='nav-container'>
+        <div id = 'left'>
+        {% comment %} <video src="{% static 'images/AnimeJojo.mp4' %}" id='mlogo'> {% endcomment %}
+            
+            <h1>AnimeJojo</h1>
+        </div>
+        <div id = 'middle'>
+            <div id="i1">
+                <a href = "{% url 'home' %}"> Home </a>
+            </div>
+            <div id="i2">
+                <a href = ""> About </a>
+            </div>
+            <div id="i3">
+                <a href = ""> Contact </a>
+            </div>
+            <div id="i4">   
+                <a href = "{% url 'random' %}"> Random Anime! </a>
+            </div>
+            <div id ='i6'>
+                <a href = "{% url 'features' %}"> Features </a>
+            </div>
+        {% if request.user.is_authenticated %}
+            <div id="i9">
+                <a href = "{% url 'profile' %}"> Profile </a>
+            </div>
+        </div>
+        <div id="right">
+            <div id="i5">
+                <a href = "{% url 'logout' %}"><button> Logout </button></a>
+            </div>
+            {% else %}
+        </div>
+        <div id="right">
+            <div id="i5">
+                <a href = "{% url 'loginPage' %}"><button> Login </button></a>
+            </div>
+            {% endif %}
+            {% comment %} <div id="i5">
+                Logout
+            </div> {% endcomment %}
+            <div id ='i7'>
+                <h1>🔎</h1>
+            </div>
+        </div>
+    </div>
+
+</header>

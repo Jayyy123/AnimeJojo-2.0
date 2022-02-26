@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+
+
+<section class="database">
+    <h2>AnimeJojo</h2>
+    <div id="d-main">
+        <ul id='d-holder'>
+            {% for i in rang %}
+            <li id="titles">{{i}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</section>
+
+
+
+{% endblock %}

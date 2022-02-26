@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{%block content%}
+
+<section class = 'authentiation'>
+    <div id = 'authentication-container'>
+        <form id="form" method= "post" type="multipart-form">
+        {% csrf_token %}
+            <div id="form-header">
+                <h2> Edit your Profile </h2>
+            </div>
+            <div id="form-body">
+                <div id = "user-fields">
+
+                </div>
+                <input id="submit" type = "submit" value = "Save">
+        <h4>Already have an account?
+        <br> 
+        Login 
+        <a href="{% url 'loginPage' %}" id="here"> here!</a></h4>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+{% endblock %}
