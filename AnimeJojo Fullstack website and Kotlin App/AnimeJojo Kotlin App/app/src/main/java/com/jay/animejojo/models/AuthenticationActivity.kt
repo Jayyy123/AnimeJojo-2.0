@@ -9,5 +9,6 @@ class AuthenticationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
         supportActionBar!!.hide()
+
     }
 }
