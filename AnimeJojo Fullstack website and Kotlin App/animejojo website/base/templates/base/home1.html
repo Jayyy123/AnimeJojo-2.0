@@ -1,0 +1,54 @@
+{%load my_filters%}
+{% load static%}
+<link rel="stylesheet" href="{%static 'styles/main.css' %}">
+<header class="n-header">
+    <nav class = "navbar">
+        <div id ="ll">
+            <div id="m">
+                <div id="mt">
+                
+                </div>
+                <div id="mm">
+                
+                </div>
+                <div id="mb">
+                
+                </div>
+            </div>        
+            <div id="l-logo">
+                <h1>AnimeJojo</h1>
+            </div>
+        </div>
+        <div id ="ml">
+            <a href="" id="ml1">Home</a>
+            <a href="" id="ml2">Wallpapers</a>
+            <a href="" id="ml3">Anime Quiz</a>
+            <a href="" id="ml4">Characterize</a>
+        </div>
+        <div id ="rl">
+        </div>
+    
+    </nav>
+
+</header>
+<section class="home1">
+
+    <div class = "search">
+        <input type="text" placeholder="Search 🔎" id="search">
+    </div>
+    <h3>Trending Anime</h3>
+    <div class="home1-container">
+    {% for i in d  %}
+        <div id="popularAnim">
+            
+            <a href="{{i.2}}" id="lA">
+                <img src="{{i.1}}" alt="" id="animeDisplay">
+                <div id="paTitle">
+                    {{i.0}}
+                </div>
+            </a>
+
+        </div>
+        {% endfor %}
+    </div>
+</section>

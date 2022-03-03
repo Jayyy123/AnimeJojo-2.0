@@ -112,3 +112,30 @@ def allAnime(request):
 
     return render(request, 'base/database.html', {'b':b,'rang': a})
 
+def home1(request):
+    url = "https://jikan1.p.rapidapi.com/top/anime/1/upcoming"
+
+    headers = {
+        'x-rapidapi-host': "jikan1.p.rapidapi.com",
+        'x-rapidapi-key': "c35ac8900cmsh5ca7846ec59e70dp144bafjsn316847f30361"
+    }
+    response = requests.request("GET", url, headers=headers)
+    
+    values = response.json()
+    val = values["top"]
+    title = []
+    url = []
+    image = []
+    for i in val:
+        title.append(i["title"])
+        url.append(i["url"])
+        image.append(i["image_url"])
+    rang = range(0, len(title))
+    ran = len(title) - 1
+    print(title)
+    data = [{"title":title, "url":url, "image":image}]
+    data1 = zip(title,image,url)
+    return render(request,'base/home1.html',  {'d':data1})
+
+def slideshow(request):
+    return render(request,'base/slideshow.html')

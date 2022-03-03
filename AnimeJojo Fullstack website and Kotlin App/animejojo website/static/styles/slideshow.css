@@ -1,0 +1,42 @@
+.slideshow{
+    width: 100%;
+    background-color: antiquewhite;
+    position: absolute;
+    
+}
+@keyframes animate {
+
+
+    to{
+        transform: translate(-1500%);
+    }
+}
+
+#containerrr{
+    position: absolute;
+    border: 3px solid cadetblue;
+    height: 80px;
+    width: 200px;
+    overflow: hidden;
+}
+#d{
+    border-radius: 100%;
+    background-color: rgb(148, 14, 14);
+    width: 20px;
+    height: 3px;
+    left: 49%;
+
+}
+#s-imagesss{
+    position: absolute;
+    display: flex;
+
+}
+#img{
+    height: 100px;
+
+}
+#img{
+    height: 100px;
+    animation: animate 80s linear infinite;
+}
