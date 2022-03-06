@@ -33,9 +33,12 @@
 </header>
 <section class="home1">
 
-    <div class = "search">
-        <input type="text" placeholder="Search 🔎" id="search">
-    </div>
+    <form class = "search" method= "post">
+    {% csrf_token %}
+
+        <input type="text" placeholder="Search 🔎" id="search" name="search"><br>
+        <input type="submit" value="🔎" id = "sb">
+    </form>
     <h3>Trending Anime</h3>
     <div class="home1-container">
     {% for i in d  %}
@@ -50,5 +53,20 @@
 
         </div>
         {% endfor %}
+    </div>
+    <h4>Latest Anime</h4>
+    <div class="home1-containerrr">
+        {% for i in dd  %}
+            <div id="popularAnimm">
+                
+                <a href="{{i.1}}" id="lA">
+                    <div id="paTitle">
+                        {{i.0}}
+                    </div>
+                </a>
+
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>

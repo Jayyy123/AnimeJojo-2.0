@@ -1,4 +1,5 @@
 from optparse import Values
+from turtle import title
 from unittest import result
 from django.shortcuts import render
 from numpy import imag
@@ -132,10 +133,67 @@ def home1(request):
         image.append(i["image_url"])
     rang = range(0, len(title))
     ran = len(title) - 1
-    print(title)
+    # print(title)
     data = [{"title":title, "url":url, "image":image}]
+
     data1 = zip(title,image,url)
-    return render(request,'base/home1.html',  {'d':data1})
+    
+    print(len(title))
+
+    title_set1 = title[:15]
+    url_set1 = url[:15]
+    image_set1 = image[:15]
+    data2 = zip(title_set1,image_set1,url_set1)
+
+    # Top anime
+
+    url1 = "https://anime-release.p.rapidapi.com/anime"
+
+    headers1 = {
+    'x-rapidapi-host': "anime-release.p.rapidapi.com",
+    'x-rapidapi-key': "c35ac8900cmsh5ca7846ec59e70dp144bafjsn316847f30361"
+    }
+
+    response1 = requests.request("GET", url1, headers=headers1)
+
+    topValues = response1.json()
+    top_title = []
+    top_url = []
+    top_source = []
+
+    for n in topValues:
+
+        top_title.append(n['title'])
+        top_url.append(n['url'])
+        top_source.append(n['source'])
+
+    top_t = top_title[:10]
+    top_u = top_url[:10]
+    top_s = top_source[:10]
+
+    data3 = zip(top_t,top_u,top_s)
+
+    # print(response1.text)
+
+
+    if request.method == "POST":
+        q = request.POST['search']
+        print(q)
+        
+        url2 = "https://jikan1.p.rapidapi.com/search/anime"
+
+        querystring = {"q":q}
+
+        headers2 = {
+            'x-rapidapi-host': "jikan1.p.rapidapi.com",
+            'x-rapidapi-key': "c35ac8900cmsh5ca7846ec59e70dp144bafjsn316847f30361"
+            }
+
+        response2 = requests.request("GET", url2, headers=headers2, params=querystring)
+        # print(response.text)
+        print(response2.text)
+
+    return render(request,'base/home1.html',  {'d':data2, 'dd':data3})
 
 def slideshow(request):
     return render(request,'base/slideshow.html')
