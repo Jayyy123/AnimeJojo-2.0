@@ -29,6 +29,7 @@ class SplashActivity : AppCompatActivity() {
         animejojo!!.setOnCompletionListener {
             val intent = Intent(this,AuthenticationActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }
