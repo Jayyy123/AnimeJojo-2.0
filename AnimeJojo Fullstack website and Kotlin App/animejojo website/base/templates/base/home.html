@@ -1,16 +1,7 @@
-{% extends 'main.html' %}
-{%load my_filters%}
-{%load static%}
-
-{%block content%}
-
+{% comment %} {%load my_filters%} {% endcomment %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'styles/main.css' %}">
 <section class="hero">
-
-    <div id="video">
-
-        <img src = "/static/images/wall5.jpeg" id="wall">
-
-    </div>
     <div id="splash-video">
 
         <video src = "/static/images/AnimeJojo.mp4" id="bk1" autoplay = "autoplay" muted = "muted">
@@ -19,40 +10,73 @@
 
 </section>
 
-<section class="main">
-
-<div class="container">
-    <div id="main-body">
-        <div id="latest">
-            <h2> Latest Anime </h2>
-            <div id="trending">
-            {% comment %} {% for i in  e %} {% endcomment %}
-                {% comment %} {% while i < 14477 %} {% endcomment %}
-                {% for i in f %}
-                {% comment %} {% for ii in b %}
-                {% for iii in c %} {% endcomment %}
-                <a href = "{{i.2}}" id="linker">
-                    <img src = "{{ i.1 }}">
-                    <div id="t1">
-                        {{ i.0 }}
-                    </div>
-                </a>
-                {% comment %} {% endfor %}
-                {% endfor %} {% endcomment %}
-
-                {% endfor %}
-
+<header class="n-header hide">
+    <nav class = "navbar">
+        <div id ="ll">
+            <div id="m">
+                <div id="mt">
+                
+                </div>
+                <div id="mm">
+                
+                </div>
+                <div id="mb">
+                
+                </div>
+            </div>        
+            <div id="l-logo">
+                <h1>AnimeJojo</h1>
             </div>
         </div>
+        <div id ="ml">
+            <a href="{% url 'home1' %}" id="ml1">Home</a>
+            <a href="{% url 'wallpapers' %}" id="ml2">Wallpapers</a>
+            <a href="{% url 'animequiz' %}" id="ml3">Anime Quiz</a>
+            <a href="{% url 'characterize' %}" id="ml4">Characterize</a>
+            <a href="{% url 'allanime' %}" id="ml4">All Anime</a>
+        </div>
+        <div id ="rl">
+        </div>
+    
+    </nav>
 
+</header>
+<section class="home1 hide">
+
+    <form class = "search" method= "post">
+    {% csrf_token %}
+
+        <input type="text" placeholder="Search 🔎" id="search" name="search" oninput="searcher()"><br>
+    </form>
+    <h3 id="ta">Trending Anime</h3>
+    <div class="home1-container">
+    {% for i in d  %}
+        <div id="popularAnim">
+            
+            <a href="{{i.2}}" id="lA">
+                <img src="{{i.1}}" alt="" id="animeDisplay">
+                <div id="paTitle">
+                    {{i.0}}
+                </div>
+            </a>
+
+        </div>
+        {% endfor %}
     </div>
+    <h4 id="lar">Latest News</h4>
+    <div class="home1-containerrr">
+        {% for i in dd  %}
+            <div id="popularAnimm">
+                
+                <a href="{{i.1}}" id="lA">
+                    <div id="paTitlee">
+                        {{i.0}}
+                    </div>
+                </a>
 
-</div>
-
-
-
-
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
-
-
-{%endblock%}
+<script src="{% static 'js/home.js' %}"></script>

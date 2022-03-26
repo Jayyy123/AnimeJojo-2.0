@@ -9,6 +9,7 @@
             <h1>AnimeJojo</h1>
         </div>
         <div id = 'middle'>
+        {% if request.user.is_authenticated %}
             <div id="i1">
                 <a href = "{% url 'home' %}"> Home </a>
             </div>
@@ -24,7 +25,6 @@
             <div id ='i6'>
                 <a href = "{% url 'features' %}"> Features </a>
             </div>
-        {% if request.user.is_authenticated %}
             <div id="i9">
                 <a href = "{% url 'profile' %}"> Profile </a>
             </div>
@@ -35,6 +35,18 @@
             </div>
             {% else %}
         </div>
+        <div id = 'middle'>
+            <div id="i1">
+                <a href = "{% url 'signupPage' %}"> Signup </a>
+            </div>
+            <div id="i2">
+                <a href = ""> About </a>
+            </div>
+            <div id="i3">
+                <a href = ""> Contact </a>
+            </div>
+        </div>
+        
         <div id="right">
             <div id="i5">
                 <a href = "{% url 'loginPage' %}"><button> Login </button></a>

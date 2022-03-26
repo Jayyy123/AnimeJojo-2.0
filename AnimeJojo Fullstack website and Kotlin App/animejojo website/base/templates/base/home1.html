@@ -24,6 +24,7 @@
             <a href="" id="ml2">Wallpapers</a>
             <a href="" id="ml3">Anime Quiz</a>
             <a href="" id="ml4">Characterize</a>
+            <a href="" id="ml4">All Anime</a>
         </div>
         <div id ="rl">
         </div>
@@ -37,7 +38,6 @@
     {% csrf_token %}
 
         <input type="text" placeholder="Search 🔎" id="search" name="search"><br>
-        <input type="submit" value="🔎" id = "sb">
     </form>
     <h3>Trending Anime</h3>
     <div class="home1-container">
@@ -60,7 +60,7 @@
             <div id="popularAnimm">
                 
                 <a href="{{i.1}}" id="lA">
-                    <div id="paTitle">
+                    <div id="paTitlee">
                         {{i.0}}
                     </div>
                 </a>

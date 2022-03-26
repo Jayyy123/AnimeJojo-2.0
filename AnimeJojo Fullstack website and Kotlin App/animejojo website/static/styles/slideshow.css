@@ -4,6 +4,9 @@
     position: absolute;
     
 }
+body{
+    z-index: -2;
+}
 @keyframes animate {
 
 
@@ -16,8 +19,7 @@
     position: absolute;
     border: 3px solid cadetblue;
     height: 80px;
-    width: 200px;
-    overflow: hidden;
+    width: 100%;
 }
 #d{
     border-radius: 100%;
@@ -28,15 +30,12 @@
 
 }
 #s-imagesss{
+    width: 2000px;
     position: absolute;
     display: flex;
 
 }
-#img{
-    height: 100px;
 
-}
 #img{
     height: 100px;
-    animation: animate 80s linear infinite;
 }

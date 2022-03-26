@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 def loginPage(request):
 
     if request.user.is_authenticated:
-        return redirect('allanime')
+        return redirect('home')
 
     print(request.user)
 
@@ -28,7 +28,7 @@ def loginPage(request):
 
         if user is not None:
             login(request,user)
-            return redirect('allanime')
+            return redirect('home')
         else:
             messages.error(request,"Username or Password is incorrect")
         
@@ -39,6 +39,8 @@ def logoutPage(request):
     return redirect('loginPage')
 
 def signupPage(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     b = User
     a = UserForm()
     if request.method == 'POST':
@@ -47,7 +49,7 @@ def signupPage(request):
             user = a.save(commit=False)
             user.save()
             login(request,user)
-            return redirect('allanime')
+            return redirect('home')
         else:
             messages.error(request,'There was an error creating your account')
 
@@ -62,6 +64,9 @@ def profile(request):
         account = Profile.objects.get(username = username)
         
         print(account)
+
+    else:
+        return redirect('loginPage')
 
     return render(request, 'users/profile.html',{'a':account})
 # @permission_required
